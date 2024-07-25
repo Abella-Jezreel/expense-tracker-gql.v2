@@ -20,7 +20,7 @@ const httpServer = http.createServer(app);
 dotenv.config();
 
 // Connect to MongoDB
-connectDB();
+await connectDB();
  
 const server = new ApolloServer({
   typeDefs: mergedTypeDefs,
@@ -30,7 +30,7 @@ const server = new ApolloServer({
 
 // Ensure we wait for our server to start
 await server.start();
-
+ 
 // Set up our Express middleware to handle CORS, body parsing,
 // and our expressMiddleware function.
 app.use(
