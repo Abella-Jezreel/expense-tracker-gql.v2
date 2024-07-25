@@ -6,6 +6,8 @@ import http from 'http';
 import cors from 'cors';
 import mergedResolvers from "./resolvers/index.js"
 import mergedTypeDefs from "./typeDefs/index.js"
+import connectDB from './db/connectDB.js';
+import dotenv from 'dotenv';
 
 // Required logic for integrating with Express
 const app = express();
@@ -13,6 +15,12 @@ const app = express();
 // Below, we tell Apollo Server to "drain" this httpServer,
 // enabling our servers to shut down gracefully.
 const httpServer = http.createServer(app);
+
+// Load environment variables
+dotenv.config();
+
+// Connect to MongoDB
+connectDB();
  
 const server = new ApolloServer({
   typeDefs: mergedTypeDefs,

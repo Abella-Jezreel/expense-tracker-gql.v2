@@ -13,6 +13,7 @@
     "passport": "^0.7.0"
   },
   "devDependencies": {
+    "colors": "^1.4.0",
     "nodemon": "^3.1.4"
   },
   "name": "expense-tracker-gql.v2",
